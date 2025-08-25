@@ -30,3 +30,9 @@ def parse_markdown_slides(content: str) -> list:
     
     return slides
 
+def transform_parameters_to_frontmatter(parameters: dict):
+    frontmatter = ""
+    for key in parameters.keys():
+        value = parameters.get(key, "")
+        frontmatter += f"{key}: {value}\n"
+    return frontmatter.strip()
