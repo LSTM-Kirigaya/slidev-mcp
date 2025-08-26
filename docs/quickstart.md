@@ -61,7 +61,7 @@ uv sync  # Install project dependencies
 
 ```bash
 # Install Playwright browsers in virtual environment
-playwright install
+uv run playwright install
 ```
 
 ### 5. Install Slidev CLI
@@ -98,10 +98,12 @@ slidev --version
 # Linux/macOS: source .venv/bin/activate
 
 # Run MCP server
-uv run main.py
+uv run servers/themes/academic/server.py
 ```
 
 If there are no errors, the server has started successfully.
+
+> Try different themes, example above just shows `academic` theme. You can find other themes in `servers/themes` directory.
 
 ## Usage Guide
 

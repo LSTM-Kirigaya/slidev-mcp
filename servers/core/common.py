@@ -61,7 +61,7 @@ def run_command(command: Union[str, List[str]]) -> SlidevResult:
             stdin=subprocess.DEVNULL
         )
         if result.returncode == 0:
-            return SlidevResult(success=True, message="Command executed successfully", output=result.stdout)
+            return SlidevResult(success=True, message="Command executed successfully", data=result.stdout)
         else:
             return SlidevResult(success=False, message=f"Command failed: {result.stderr}")
     except Exception as e:
@@ -72,7 +72,7 @@ def run_command(command: Union[str, List[str]]) -> SlidevResult:
 async def websearch(url: str) -> SlidevResult:
     async with AsyncWebCrawler() as crawler:
         result = await crawler.arun(url)
-        return SlidevResult(success=True, message="success", output=result.markdown)
+        return SlidevResult(success=True, message="success", data=result.markdown)
 
 def check_environment() -> SlidevResult:
     if not check_nodejs_installed():
@@ -81,7 +81,7 @@ def check_environment() -> SlidevResult:
     result = run_command("slidev --version")
     if not result.success:
         return run_command("npm install -g @slidev/cli")
-    return SlidevResult(success=True, message="环境就绪，slidev 可以使用", output=result.output)
+    return SlidevResult(success=True, message="环境就绪，slidev 可以使用", data=result.data)
 
 
 def print_tools(tools):

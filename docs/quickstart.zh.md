@@ -62,7 +62,7 @@ uv sync  # 安装项目依赖
 
 ```bash
 # 在虚拟环境中安装 Playwright 浏览器
-playwright install
+uv run playwright install
 ```
 
 ### 5. 安装 Slidev CLI
@@ -99,12 +99,12 @@ slidev --version
 # Linux/macOS: source .venv/bin/activate
 
 # 运行 MCP 服务器
-uv run main.py
+uv run servers/themes/academic/server.py
 ```
 
 如果没有报错，说明服务器启动成功。
 
-
+> 尝试不同的主题，上面只是展示 `academic` 主题。你可以在 `servers/themes` 目录中找到其他主题。
 
 ## 使用指南
 
