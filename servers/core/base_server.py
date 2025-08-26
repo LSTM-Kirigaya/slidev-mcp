@@ -150,14 +150,13 @@ class SlidevBaseServer:
 
     def install_slidev_prompts(self):
         mcp = self.mcp
-        slidev = self.slidev
         prompt_manager = self.prompt_manager
 
         @mcp.prompt()
         def outline_generate_prompt(title: str, content: str):
             """generate outline for slidev"""
             return prompt_manager.render(
-                PromptName.outline_generate,
+                PromptName.outline_generate.value,
                 {
                     "title": title,
                     "content": content
@@ -166,8 +165,9 @@ class SlidevBaseServer:
 
         @mcp.prompt()
         def slidev_generate_prompt():
+            """generate slidev"""
             return prompt_manager.render(
-                PromptName.slidev_generate,
+                PromptName.slidev_generate.value,
                 {}
             )
 
@@ -175,7 +175,7 @@ class SlidevBaseServer:
         def slidev_generate_with_specific_outlines_prompt(title: str, content: str, outlines: str, path: str):
             """generate slidev with specific outlines"""
             return prompt_manager.render(
-                PromptName.slidev_generate_with_specific_outlines,
+                PromptName.slidev_generate_with_specific_outlines.value,
                 {
                     "title": title,
                     "content": content,

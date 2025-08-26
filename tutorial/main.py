@@ -6,12 +6,10 @@ import sys
 import shutil
 from pathlib import Path
 import os
-from utils import parse_markdown_slides
 from crawl4ai import AsyncWebCrawler
 import datetime
 from usermcp import register_user_profile_mcp
 import argparse
-import json
 
 mcp = FastMCP('slidev-mcp-academic')
 

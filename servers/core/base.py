@@ -1,10 +1,8 @@
 from pathlib import Path
-from typing import Dict, Any
 import os
 
 from servers.models.slidev import SlidevResult, SaveOutlineParam, SlidevCreateParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam, SlidevGetPageParam, SlidevLoadParam
 from servers.models.template import TemplateName
-from servers.core.common import transform_parameters_to_frontmatter
 from servers.core.state_manager import SlidevStateManager
 from servers.core.template_manager import TemplateManager
 
@@ -35,9 +33,12 @@ class SlidevBase:
         if os.path.exists(slides_path):
             return self.load(name)
         else:
-            template = self.template_manager.render(TemplateName.cover, {
-                "title": name
-            })
+            template = self.template_manager.render(
+                TemplateName.cover.value,
+                {
+                    "title": name
+                }
+            )
 
             with open(slides_path, 'w', encoding="utf-8") as f:
                 f.write(template)
@@ -66,7 +67,7 @@ class SlidevBase:
             return SlidevResult(success=False, message="没有激活的项目")
 
         template = self.template_manager.render(
-            template_name=TemplateName.cover,
+            template_name=TemplateName.cover.value,
             context=param.model_dump()
         )
 
@@ -80,11 +81,14 @@ class SlidevBase:
         if not self.state_manager.is_project_loaded():
             return SlidevResult(success=False, message="没有激活的项目")
 
-        template = self.template_manager.render(TemplateName.page, {
-            "content": param.content,
-            "layout": param.layout,
-            "parameters": param.parameters
-        })
+        template = self.template_manager.render(
+            TemplateName.page.value,
+            {
+                "content": param.content,
+                "layout": param.layout,
+                "parameters": param.parameters
+            }
+        )
 
         new_index = self.state_manager.add_page_content(template)
         self.state_manager.save_slidev_content()
@@ -102,11 +106,14 @@ class SlidevBase:
         if index < 0 or index >= len(slides):
             return SlidevResult(success=False, message=f"无效的页码 {index}")
 
-        template = self.template_manager.render(TemplateName.page, {
-            "content": param.content,
-            "layout": param.layout,
-            "parameters": param.parameters
-        })
+        template = self.template_manager.render(
+            TemplateName.page.value,
+            {
+                "content": param.content,
+                "layout": param.layout,
+                "parameters": param.parameters
+            }
+        )
 
         self.state_manager.set_slidev_page(index, template)
         self.state_manager.save_slidev_content()

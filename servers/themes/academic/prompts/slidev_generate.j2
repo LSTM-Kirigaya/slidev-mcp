@@ -8,8 +8,8 @@
 - academic 主题的 frontmatter: https://raw.githubusercontent.com/alexanderdavide/slidev-theme-academic/refs/heads/master/README.md
 
 遇到 `:` 开头的话语，这是命令，目前的命令有如下的：
-- `:sum {{ "{{url}}" }}`: 使用 `websearch` 爬取目标网页内容并整理，如果爬取失败，你需要停下来让用户手动输入网页内容的总结。
-- `:mermaid {{ "{{description}}" }}`: 根据 description 生成符合描述的 mermaid 流程图代码，使用 ```mermaid ``` 进行包裹。
+- `:sum {url}`: 使用 `websearch` 爬取目标网页内容并整理，如果爬取失败，你需要停下来让用户手动输入网页内容的总结。
+- `:mermaid {description}`: 根据 description 生成符合描述的 mermaid 流程图代码，使用 ```mermaid ``` 进行包裹。
 
 如果用户要求你生成大纲或者摘要，那么一定要调用 `slidev_save_outline` 这个函数来保存你总结好的大纲结果。
 
