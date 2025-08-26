@@ -1,0 +1,15 @@
+{{ slidev_generate_prompt }}
+
+<OUTLINES>
+{{ outlines }}
+</OUTLINES>
+
+<CONTENT title="{{ title }}">
+{{ content }}
+</CONTENT>
+
+在开始之前，你需要先使用 slidev_create 工具创建讲演，并以 {{ path }} 作为参数传入。
+
+请严格根据大纲中的内容调用工具来生成 slidev，outlines 中的每一个元素，都对应一页 slidev 的页，你需要使用 `slidev_add_page` 来创建它。
+
+所有步骤结束后，你需要调用 `slidev_export_project` 来导出项目。

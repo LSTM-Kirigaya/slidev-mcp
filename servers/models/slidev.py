@@ -5,7 +5,7 @@ from pydantic import BaseModel
 class SlidevResult(BaseModel):
     success: bool
     message: str
-    output: Optional[Union[str, int, List[str]]] = None
+    data: Optional[Union[str, int, List[str]]] = None
 
 
 class OutlineItem(BaseModel):
@@ -15,3 +15,36 @@ class OutlineItem(BaseModel):
 
 class SaveOutlineParam(BaseModel):
     outlines: List[OutlineItem]
+
+
+class SlidevCreateParam(BaseModel):
+    name: str
+
+
+class SlidevLoadParam(BaseModel):
+    name: str
+
+
+class SlidevMakeCoverParam(BaseModel):
+    title: str
+    subtitle: Optional[str] = ""
+    author: Optional[str] = ""
+    authorUrl: Optional[str] = ""
+    backgroundUrl: Optional[str] = ""
+
+
+class SlidevAddPageParam(BaseModel):
+    content: str
+    layout: str = "default"
+    parameters: Optional[Dict] = {}
+
+
+class SlidevSetPageParam(BaseModel):
+    index: int
+    content: str
+    layout: Optional[str] = ""
+    parameters: Optional[Dict] = {}
+
+
+class SlidevGetPageParam(BaseModel):
+    index: int

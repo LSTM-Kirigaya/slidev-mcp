@@ -1,0 +1,11 @@
+---
+theme: academic
+layout: cover
+transition: slide-left
+coverAuthor: {{ param.author | default("Unknown Author") }}
+coverAuthorUrl: {{ param.authorUrl | default("") }}
+coverBackgroundUrl: {{ param.backgroundUrl | default("") }}
+---
+
+# {{ title }}
+{% if subtitle %}## {{ subtitle }}{% endif %}

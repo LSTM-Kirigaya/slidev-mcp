@@ -1,3 +1,11 @@
+import shutil
+import subprocess
+from typing import Optional, Union, List, Dict
+
+from crawl4ai import AsyncWebCrawler
+
+from servers.models.slidev import SlidevResult
+
 def parse_markdown_slides(content: str) -> list:
     """
     解析markdown内容，按YAML front matter切分幻灯片
@@ -36,3 +44,40 @@ def transform_parameters_to_frontmatter(parameters: dict):
         value = parameters.get(key, "")
         frontmatter += f"{key}: {value}\n"
     return frontmatter.strip()
+
+def check_nodejs_installed() -> bool:
+    return shutil.which("node") is not None
+
+def run_command(command: Union[str, List[str]]) -> SlidevResult:
+    try:
+        result = subprocess.run(
+            command,
+            cwd='./',
+            capture_output=True,
+            text=True,
+            shell=isinstance(command, str),
+            timeout=10,
+            stdin=subprocess.DEVNULL
+        )
+        if result.returncode == 0:
+            return SlidevResult(success=True, message="Command executed successfully", output=result.stdout)
+        else:
+            return SlidevResult(success=False, message=f"Command failed: {result.stderr}")
+    except Exception as e:
+        return SlidevResult(success=False, message=f"Error executing command: {str(e)}")
+
+
+
+async def websearch(url: str) -> SlidevResult:
+    async with AsyncWebCrawler() as crawler:
+        result = await crawler.arun(url)
+        return SlidevResult(success=True, message="success", output=result.markdown)
+
+def check_environment() -> SlidevResult:
+    if not check_nodejs_installed():
+        return SlidevResult(success=False, message="Node.js is not installed. Please install Node.js first.")
+    
+    result = run_command("slidev --version")
+    if not result.success:
+        return run_command("npm install -g @slidev/cli")
+    return SlidevResult(success=True, message="环境就绪，slidev 可以使用", output=result.output)

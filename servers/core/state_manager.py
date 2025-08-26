@@ -1,13 +1,18 @@
 import os
 from pathlib import Path
 from typing import Optional, Dict, List
+import warnings
 
 from servers.models.slidev import SaveOutlineParam
 from servers.core.common import parse_markdown_slides
 
 class SlidevStateManager:
-    def __init__(self, root_env_var: str = "SLIDEV_MCP_ROOT", default_root: str = ".slidev-mcp", theme: str = "academic"):
-        # 设置根目录
+    def __init__(self,
+            root_env_var: str = "SLIDEV_MCP_ROOT",
+            default_root: str = ".slidev-mcp",
+            theme: str = "academic"
+        ):
+
         _env_root = os.environ.get(root_env_var)
         if _env_root and os.path.isabs(_env_root):
             self.root_dir = _env_root
@@ -17,6 +22,7 @@ class SlidevStateManager:
 
         self.active_project: Optional[Dict] = None
         self.slidev_content: List[str] = []
+        self.max_page_index = 999
         self.theme = theme
 
     def get_project_home(self, name: str) -> str:
@@ -38,6 +44,20 @@ class SlidevStateManager:
 
     def get_slidev_content(self) -> List[str]:
         return self.slidev_content
+    
+    def set_slidev_page(self, index: int, content: str):
+        if index < 0 or index >= self.max_page_index:
+            warnings.warn(f"Invalid page index: {index}")
+            return False
+
+        if index >= len(self.slidev_content):
+            self.slidev_content.append(content)
+        else:
+            self.slidev_content[index] = content
+
+    def add_page_content(self, content: str):
+        self.slidev_content.append(content)
+        return len(self.slidev_content) - 1
 
     def is_project_loaded(self) -> bool:
         return self.active_project is not None
