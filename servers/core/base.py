@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Dict, Any
 import os
 
-from servers.models.slidev import SlidevResult, SaveOutlineParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam
+from servers.models.slidev import SlidevResult, SaveOutlineParam, SlidevCreateParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam, SlidevGetPageParam, SlidevLoadParam
 from servers.models.template import TemplateName
 from servers.core.common import transform_parameters_to_frontmatter
 from servers.core.state_manager import SlidevStateManager
@@ -11,9 +11,9 @@ from servers.core.template_manager import TemplateManager
 class SlidevBase:
     def __init__(
             self,
+            theme: str,
             state_manager: SlidevStateManager,
             template_manager: TemplateManager,
-            theme: str = "academic"
         ):
         """
         Base class for slidev MCP tools
@@ -24,8 +24,9 @@ class SlidevBase:
         self.template_manager = template_manager
         self.theme = theme
 
-    def create(self, name: str) -> SlidevResult:
+    def create(self, param: SlidevCreateParam) -> SlidevResult:
         """创建 slidev 项目"""
+        name = param.name
         home = self.state_manager.get_project_home(name)
 
         os.makedirs(home, exist_ok=True)
@@ -46,8 +47,10 @@ class SlidevBase:
 
         return SlidevResult(success=True, message=f"成功创建并加载项目 {name}", data=name)
 
-    def load(self, name: str) -> SlidevResult:
+    def load(self, param: SlidevLoadParam) -> SlidevResult:
         """加载已有项目"""
+        
+        name = param.name
         slides_path = Path(self.state_manager.get_project_home(name)) / "slides.md"
         if self.state_manager.load_slidev_content(name):
             return SlidevResult(
@@ -110,8 +113,10 @@ class SlidevBase:
 
         return SlidevResult(success=True, message=f"第 {index} 页更新完成")
 
-    def get_page(self, index: int) -> SlidevResult:
+    def get_page(self, param: SlidevGetPageParam) -> SlidevResult:
         """获取页面内容"""
+
+        index = param.index
         if not self.state_manager.is_project_loaded():
             return SlidevResult(success=False, message="没有激活的项目")
 
