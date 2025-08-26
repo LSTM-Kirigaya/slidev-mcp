@@ -1,6 +1,9 @@
+import asyncio
+
 from mcp.server.fastmcp import FastMCP
 # user profile mcp: https://github.com/LSTM-Kirigaya/usermcp
 from usermcp import register_user_profile_mcp
+from colorama import Fore, Style
 
 from servers.core.common import websearch, check_environment
 from servers.core.state_manager import SlidevStateManager
@@ -9,6 +12,7 @@ from servers.core.template_manager import TemplateManager
 from servers.core.base import SlidevBase
 from servers.models.slidev import SlidevResult, SlidevCreateParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam, SlidevLoadParam, SlidevGetPageParam
 from servers.models.prompt import PromptName
+from servers.core.common import print_prompts, print_resource_templates, print_resources, print_tools
 
 class SlidevBaseServer:
     def __init__(self,
@@ -28,6 +32,8 @@ class SlidevBaseServer:
         self.install_crawl4ai_tools()
         self.install_slidev_tools()
         self.install_slidev_prompts()
+
+        asyncio.run(show_mcp_detail(mcp))
 
     def install_usermcp_tools(self):
         register_user_profile_mcp(self.mcp)
@@ -177,3 +183,16 @@ class SlidevBaseServer:
                     "path": path
                 }
             )
+        
+
+async def show_mcp_detail(mcp: FastMCP):
+    tools = await mcp.list_tools()
+    prompts = await mcp.list_prompts()
+    resources = await mcp.list_resources()
+    templates = await mcp.list_resource_templates()
+    
+    print(Fore.YELLOW + Style.BRIGHT + f"\n🚀 MCP Server {mcp.name} Registry")
+    print_tools(tools)
+    print_prompts(prompts)
+    print_resources(resources)
+    print_resource_templates(templates)

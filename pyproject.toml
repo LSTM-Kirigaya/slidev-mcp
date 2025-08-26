@@ -1,12 +1,14 @@
 [project]
 name = "slidev-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "A smart slide generator based on Slidev and LLM"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "colorama>=0.4.6",
     "crawl4ai>=0.7.0",
     "jinja2>=3.1.6",
     "mcp[cli]>=1.9.4",
+    "rich>=14.1.0",
     "usermcp>=0.1.2",
 ]
