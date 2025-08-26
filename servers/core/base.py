@@ -31,7 +31,7 @@ class SlidevBase:
         slides_path = os.path.join(home, 'slides.md')
 
         if os.path.exists(slides_path):
-            return self.load(name)
+            return self.load(SlidevLoadParam(name=name))
         else:
             template = self.template_manager.render(
                 TemplateName.cover.value,
@@ -53,6 +53,7 @@ class SlidevBase:
         
         name = param.name
         slides_path = Path(self.state_manager.get_project_home(name)) / "slides.md"
+
         if self.state_manager.load_slidev_content(name):
             return SlidevResult(
                 success=True,

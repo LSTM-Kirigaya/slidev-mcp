@@ -61,7 +61,7 @@ class SlidevBaseServer:
 
 
         @mcp.tool()
-        def slidev_create(param: SlidevCreateParam) -> SlidevResult:
+        def slidev_create(param: SlidevCreateParam):
             """
             Create a new slidev project with the given name.
             
@@ -72,7 +72,6 @@ class SlidevBaseServer:
                 SlidevResult: Result indicating success or failure of the creation process
             """
             return slidev.create(param)
-
 
         @mcp.tool()
         def slidev_load(param: SlidevLoadParam) -> SlidevResult:
