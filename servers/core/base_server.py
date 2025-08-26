@@ -10,7 +10,7 @@ from servers.core.state_manager import SlidevStateManager
 from servers.core.prompt_manager import PromptManager
 from servers.core.template_manager import TemplateManager
 from servers.core.base import SlidevBase
-from servers.models.slidev import SlidevResult, SlidevCreateParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam, SlidevLoadParam, SlidevGetPageParam
+from servers.models.slidev import SlidevResult, SlidevCreateParam, SlidevMakeCoverParam, SlidevAddPageParam, SlidevSetPageParam, SlidevLoadParam, SlidevGetPageParam, SaveOutlineParam
 from servers.models.prompt import PromptName
 from servers.core.common import print_prompts, print_resource_templates, print_resources, print_tools
 
@@ -144,8 +144,13 @@ class SlidevBaseServer:
         
         @mcp.tool()
         def slidev_export_project():
+            """export the active Slidev project"""
             return slidev.state_manager.active_project
         
+        @mcp.tool()
+        def slidev_save_outline(param: SaveOutlineParam) -> SlidevResult:
+            """Save outline"""
+            return slidev.save_outline(param)
 
     def install_slidev_prompts(self):
         mcp = self.mcp

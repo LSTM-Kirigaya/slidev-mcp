@@ -134,9 +134,9 @@ class SlidevBase:
 
         return SlidevResult(success=True, message=f"第 {index} 页内容")
 
-    def save_outline(self, outline: SaveOutlineParam) -> SlidevResult:
+    def save_outline(self, param: SaveOutlineParam) -> SlidevResult:
         """保存 outline.json"""
-        if self.state_manager.save_outline_content(outline):
+        if self.state_manager.save_outline_content(param):
             return SlidevResult(success=True, message="大纲保存成功")
         return SlidevResult(success=False, message="保存失败，没有激活的项目")
 
