@@ -1,0 +1,41 @@
+<SLIDEV-ANIMATION-USAGE>
+## 点击动画 (Click Animation)
+
+在幻灯片中，一次“点击”可被视为动画步骤的基本单位。一张幻灯片可以包含一次或多次点击，而每次点击可以触发一个或多个动画效果（例如，显示或隐藏元素）。
+
+要为元素应用显示/隐藏的“点击动画”，您可以使用 <v-click> 组件或 v-click 指令。
+
+### v-click
+
+```html
+<!-- 组件用法：
+     此内容在您按下“next”（下一步）之前将不可见 -->
+<v-click> Hello World! </v-click>
+
+<!-- 指令用法：
+     此内容将在您第二次按下“next”时变得可见 -->
+<div v-click class="text-xl"> Hey! </div>
+```
+
+
+### v-after
+
+v-after 会在前一个 v-click 被触发时使当前元素变为可见。
+
+```html
+<div v-click> Hello </div>
+<div v-after> World </div>  <!-- 或者 <v-after> World </v-after> -->
+```
+
+当您按下“next”时，“Hello”和“World”会同时显示出来。
+
+### 点击后隐藏 (Hide after clicking)
+
+在 v-click 或 v-after 指令后添加 .hide 修饰符，可以使元素在点击后变为不可见，而不是显示出来。
+
+```html
+<div v-click> 点击 1 次后可见 </div>
+<div v-click.hide> 点击 2 次后隐藏 </div>
+<div v-after.hide> 点击 2 次后隐藏 </div>
+```
+</ANIMATION>

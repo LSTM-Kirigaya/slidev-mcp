@@ -16,4 +16,16 @@
 - 如果一页中使用了多个二级标题，那么你应该把它们拆分到不同的页面。
 - 请严格根据大纲中的内容调用工具来生成 slidev，outlines 中的每一个元素，都对应一页 slidev 的页，你需要使用 `slidev_add_page` 来创建它。
 - 所有步骤结束后，你需要调用 `slidev_export_project` 来导出项目。
+
+设置 page 时，你需要把大纲的 group 对应到该主题的 section 中，如下：
+
+The main feature of Frankfurt theme is the section and progress indicators on top.
+To divide your slides into sections,
+add the following frontmatter to the first page of each section:
+
+```yaml
+---
+section: 'Section title'
+---
+```
 </IMPORTANTS>

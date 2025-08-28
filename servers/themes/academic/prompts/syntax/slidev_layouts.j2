@@ -1,0 +1,119 @@
+<BUILD-IN-LAYOUTS>
+本页面列出了 Slidev 提供的所有内置布局。这些布局可通过幻灯片的 frontmatter 的 layout 这个 key 来设置，比如：
+
+```md
+---
+layout: cover
+---
+```
+
+<layout id="center"> ... </layout> 代表 center 这个布局的介绍和用法。
+
+<layouts>
+    <layout id="cover">
+        <description>用于创建演讲的封面页。</description>
+        <parameters>
+            <parameter name="coverAuthor" type="Array<String> 或 String" default="undefined" description="封面作者姓名"/>
+            <parameter name="coverAuthorUrl" type="Array<String> 或 String" default="undefined" description="封面作者的个人主页链接"/>
+            <parameter name="coverBackgroundUrl" type="String" default="undefined" description="封面背景图片的 URL。可在同一 Frontmatter 中使用 `class` 属性适配文字颜色。"/>
+            <parameter name="coverBackgroundSource" type="String" default="undefined" description="封面背景的来源说明（例如图片作者或机构名）"/>
+            <parameter name="coverBackgroundSourceUrl" type="String" default="undefined" description="封面背景来源的链接"/>
+            <parameter name="coverDate" type="String" default="new Date().toLocaleDateString()" description="封面显示的日期"/>
+        </parameters>
+        <example>
+            <code>
+---
+layout: cover
+coverAuthor: 锦恢
+coverAuthorUrl: https://kirigaya.cn/about
+---
+
+# 主标题
+## 副标题
+            </code>
+        </example>
+    </layout>
+
+    <layout id="table-of-contents">
+        <description>此布局会在自动根据 slidev 的内容生成一个目录大纲。当然，默认情况下你不需要为用户生成大纲。</description>
+        <example>
+            <code>
+---
+layout: table-of-contents
+---
+
+# 大纲
+            </code>
+        </example>
+    </layout>
+
+    <layout id="index">
+        <description>此布局可用于创建图表、参考文献、表格等的通用列表。它会在列表上方放置自定义内容。如果未提供任何内容，则默认使用 `<h1>Index</h1>`。</description>
+        <parameters>
+            <parameter name="indexEntries" type="{ title: string, uri?: number | string }[]" default="undefined" required="true" description="指定索引条目。`uri` 可以是页码或 URL (取决于 `indexRedirectType` 的设置)。"/>
+            <parameter name="indexRedirectType" type="'external' 或 'internal'" default="'internal'" description="定义索引条目链接的跳转类型。"/>
+        </parameters>
+        <example>
+            <code>
+---
+layout: index
+indexEntries:
+- title: 参考文献 1
+uri: https://kirigaya.cn/about
+- title: 图表 2.1
+uri: 5
+indexRedirectType: external
+---
+
+# 参考文献
+            </code>
+        </example>
+    </layout>
+
+    <layout id="figure">
+        <description>图表布局</description>
+        <parameters>
+            <parameter name="figureCaption" type="String" default="undefined" description="图表的标题说明文字。"/>
+            <parameter name="figureFootnoteNumber" type="Number" default="undefined" description="与页面内容中的 `Footnote` 脚注编号对齐。"/>
+            <parameter name="figureUrl" type="String" default="undefined" required="true" description="图表图片的 URL。"/>
+        </parameters>
+        <example>
+            <code>
+---
+layout: figure
+figureUrl: ./path/to/your-image.png
+figureCaption: 这是一张示例图片的说明
+figureFootnoteNumber: 1
+---
+
+&lt;!-- 幻灯片内容 --&gt;
+            </code>
+        </example>
+    </layout>
+
+    <layout id="figure-side">
+        <description>侧边图表布局</description>
+        <parameters>
+            <parameter name="figureCaption" type="String" default="undefined" description="图表的标题说明文字。"/>
+            <parameter name="figureFootnoteNumber" type="Number" default="undefined" description="与页面内容中的 `Footnote` 脚注编号对齐。"/>
+            <parameter name="figureUrl" type="String" default="undefined" required="true" description="图表图片的 URL。"/>
+            <parameter name="figureX" type="String" options="'l', 'r'" default="'r'" description="图表在页面中的水平位置（左/右）。"/>
+        </parameters>
+        <example>
+            <code>
+---
+layout: figure-side
+figureUrl: ./path/to/your-image.png
+figureCaption: 这张图片显示在右侧
+figureX: r
+---
+
+## 你的内容在这里
+
+图片会显示在幻灯片的右侧。
+            </code>
+        </example>
+    </layout>
+</layouts>
+
+</BUILD-IN-LAYOUTS>
