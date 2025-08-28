@@ -11,7 +11,7 @@ class PromptManager:
 
         self.env = Environment(
             loader=FileSystemLoader(prompt_dir),
-            autoescape=select_autoescape(["j2"])
+            autoescape=False
         )
         
     def render(self, template_name: PromptName, context: Dict[str, Any]) -> str:

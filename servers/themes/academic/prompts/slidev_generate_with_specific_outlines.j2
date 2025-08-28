@@ -9,7 +9,94 @@
 </CONTENT>
 
 <IMPORTANTS>
-- 在开始之前，你需要先使用 slidev_create 工具创建讲演，并以 {{ path }} 作为参数传入。
+- 在开始之前，你需要先使用 slidev_create 工具创建讲演，并以 i18n-haru 作为参数传入。
+- 每一页默认使用 default 布局，如果有图片，你应该积极使用 figure 或者 figure-side 布局。如果使用了 figure 或者 figure-side 布局，那么你就不应该再使用 ![]() 创建图片了，因为在 frontmatter 中已经创建了。
+- 如果内容太多可以使用 two-cols 布局来分为两列来演示，使用方法如下：
+```md
+---
+layout: two-cols
+---
+
+这是左侧的内容
+
+::right::
+
+这是右侧的内容
+```
+- 每一页的每一个侧边不应该超过12行文字，如果超过了，你应该使用相同的 group 名称，并把对于部分衔接到下一页。
+- 如果一页中使用了多个二级标题，那么你应该把它们拆分到不同的页面，比如，如果你生成了下面的一页：
+
+```md
+---
+layout: default
+transition: slide-left
+---
+
+# t 函数的跨语言统一签名
+
+## 函数签名规范
+
+无论使用何种编程语言，i18n 框架都提供统一的 `t` 函数接口：
+
+| 语言 | 函数签名 |
+|------|----------|
+| **Rust** | `fn t(message: String) -> String;` |
+| **TypeScript** | `function t(message: string): string;` |
+| **C++** | `std::string t(std::string message);` |
+| **Java** | `String t(String message);` |
+
+## 工作流程
+
+1. **输入**：语义化的 message key（如 `"i18n.introduction"`）
+2. **查找**：在对应语言的配置文件中查找匹配项
+3. **输出**：返回翻译文本，未找到时返回 key 本身
+4. **回退**：无对应语言文件时，使用默认语言（通常为英语）
+
+> 这种统一设计使得不同技术栈的开发者都能快速上手国际化开发
+```
+
+你应该拆分为两个页面，第一个页面：
+
+```md
+---
+layout: default
+transition: slide-left
+---
+
+# t 函数的跨语言统一签名
+
+## 函数签名规范
+
+无论使用何种编程语言，i18n 框架都提供统一的 `t` 函数接口：
+
+| 语言 | 函数签名 |
+|------|----------|
+| **Rust** | `fn t(message: String) -> String;` |
+| **TypeScript** | `function t(message: string): string;` |
+| **C++** | `std::string t(std::string message);` |
+| **Java** | `String t(String message);` |
+```
+
+第二个页面：
+
+```md
+---
+layout: default
+transition: slide-left
+---
+
+# t 函数的跨语言统一签名
+
+## 工作流程
+
+1. **输入**：语义化的 message key（如 `"i18n.introduction"`）
+2. **查找**：在对应语言的配置文件中查找匹配项
+3. **输出**：返回翻译文本，未找到时返回 key 本身
+4. **回退**：无对应语言文件时，使用默认语言（通常为英语）
+
+> 这种统一设计使得不同技术栈的开发者都能快速上手国际化开发
+```
+
 - 请严格根据大纲中的内容调用工具来生成 slidev，outlines 中的每一个元素，都对应一页 slidev 的页，你需要使用 `slidev_add_page` 来创建它。
 - 所有步骤结束后，你需要调用 `slidev_export_project` 来导出项目。
 </IMPORTANTS>

@@ -11,7 +11,7 @@ class TemplateManager:
 
         self.env = Environment(
             loader=FileSystemLoader(template_dir),
-            autoescape=select_autoescape(["md", "j2"])
+            autoescape=False
         )
 
     def render(self, template_name: TemplateName, context: Dict[str, Any]) -> str:

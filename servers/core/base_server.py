@@ -188,6 +188,17 @@ class SlidevBaseServer:
                 }
             )
         
+        @mcp.prompt()
+        def slidev_user_info(username: str, email: str, website: str):
+            return prompt_manager.render(
+                PromptName.user_info.value,
+                {
+                    "username": username,
+                    "email": email,
+                    "website": website
+                }
+            )
+        
 
 async def show_mcp_detail(mcp: FastMCP):
     tools = await mcp.list_tools()
