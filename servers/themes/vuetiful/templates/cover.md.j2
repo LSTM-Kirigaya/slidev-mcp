@@ -1,0 +1,11 @@
+---
+theme: default
+layout: cover
+transition: slide-left
+coverAuthor: {{ author | default("Unknown Author") }}
+coverAuthorUrl: {{ authorUrl | default("") }}
+coverBackgroundUrl: {{ backgroundUrl | default("") }}
+---
+
+# {{ title }}
+{% if subtitle %}## {{ subtitle }}{% endif %}

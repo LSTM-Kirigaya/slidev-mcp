@@ -1,0 +1,19 @@
+{
+    "name": "penguin",
+    "github": "https://github.com/alvarosaburido/slidev-theme-penguin",
+    "images": [
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/01.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/02.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/03.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/03.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/04.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/05.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/07.png?raw=true",
+        "https://github.com/alvarosabu/slidev-theme-penguin/blob/main/screenshots/dark/08.png?raw=true"
+    ],
+    "installScripts": [
+        "npm i -g slidev-theme-penguin",
+        "npm i -g sass-embedded",
+        "npm i -g @iconify-json/logos"
+    ]
+}

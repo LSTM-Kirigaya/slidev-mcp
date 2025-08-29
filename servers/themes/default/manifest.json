@@ -1,0 +1,17 @@
+{
+    "name": "default",
+    "github": "https://github.com/slidevjs/themes/tree/main/packages/theme-default",
+    "images": [
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/01.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/02.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/03.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/04.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/05.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/06.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/07.png",
+        "https://cdn.jsdelivr.net/gh/slidevjs/themes@main/screenshots/theme-default/08.png"
+    ],
+    "installScripts": [
+        "npm i -g @slidev/theme-default"
+    ]
+}

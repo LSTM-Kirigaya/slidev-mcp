@@ -1,0 +1,17 @@
+{
+    "name": "academic",
+    "github": "https://github.com/alexanderdavide/slidev-theme-academic",
+    "images": [
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/01.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/02.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/03.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/04.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/05.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/06.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/07.png?raw=true",
+        "https://github.com/alexanderdavide/slidev-theme-academic/blob/assets/example-export/08.png?raw=true"
+    ],
+    "installScripts": [
+        "npm i -g slidev-theme-academic"
+    ]
+}

@@ -1,0 +1,1 @@
+https://github.com/MuTsunTsai/slidev-theme-frankfurt

@@ -1,0 +1,1 @@
+https://github.com/alexanderdavide/slidev-theme-academic

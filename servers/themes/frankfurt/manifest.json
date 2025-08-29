@@ -1,0 +1,15 @@
+{
+    "name": "frankfurt",
+    "github": "https://github.com/MuTsunTsai/slidev-theme-frankfurt",
+    "images": [
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/01.png?raw=true",
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/02.png?raw=true",
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/03.png?raw=true",
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/04.png?raw=true",
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/05.png?raw=true",
+        "https://github.com/MuTsunTsai/slidev-theme-frankfurt/blob/main/screenshots/06.png?raw=true"
+    ],
+    "installScripts": [
+        "npm i -g slidev-theme-frankfurt"
+    ]
+}
