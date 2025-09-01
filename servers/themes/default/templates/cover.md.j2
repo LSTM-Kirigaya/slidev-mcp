@@ -2,10 +2,18 @@
 theme: default
 layout: cover
 transition: slide-left
-coverAuthor: {{ author | default("Unknown Author") }}
-coverAuthorUrl: {{ authorUrl | default("") }}
-coverBackgroundUrl: {{ backgroundUrl | default("") }}
+author: {{ author | default("Unknown Author") }}
+authorUrl: {{ authorUrl | default("") }}
+background: {{ backgroundUrl | default("https://cover.sli.dev") }}
+class: 'text-center'
 ---
 
 # {{ title }}
-{% if subtitle %}## {{ subtitle }}{% endif %}
+{% if subtitle %}{{ subtitle }}{% endif %}
+
+<div class="abs-br m-6 flex gap-2">
+  <a href="https://github.com/LSTM-Kirigaya/slidev-mcp" target="_blank" alt="GitHub"
+    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+</div>
