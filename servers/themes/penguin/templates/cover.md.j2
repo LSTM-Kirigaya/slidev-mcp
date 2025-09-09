@@ -1,10 +1,20 @@
 ---
 theme: penguin
 layout: intro
-transition: slide-left
-coverAuthor: {{ author | default("Unknown Author") }}
-coverAuthorUrl: {{ authorUrl | default("") }}
+transition: fade
+highlighter: shiki
+themeConfig:
+  logoHeader: 
+  eventLogo: 
+  eventUrl: 
 ---
 
 # {{ title }}
-{% if subtitle %}## {{ subtitle }}{% endif %}
+{% if subtitle %}{{ subtitle }}{% endif %}
+
+
+<div class="pt-12">
+  <span @click="next" class="px-2 p-1 rounded cursor-pointer hover:bg-white hover:bg-opacity-10">
+    Press Space for next page <carbon:arrow-right class="inline"/>
+  </span>
+</div>

@@ -7,7 +7,7 @@
   <p>AI-powered Professional Slide Creation Made Easy!</p>
   
   <p>
-    <strong>English</strong> | <a href="README.zh.md">中文</a>
+    <strong>English</strong> | <a href="README.zh.md">中文</a> | <a href="https://github.com/LSTM-Kirigaya/slidev-ai">Slidev-AI</a>
   </p>
   
   <div>
@@ -27,11 +27,9 @@ slidev-mcp is an intelligent slide generation tool based on [Slidev](https://git
 - Natural language interactive slide creation
 - Automated generation of professional presentations
 
-## 🎥 Demo Video
+We have also open-sourced the AI PPT integrated website project based on slidev-mcp [Slidev-AI](https://github.com/LSTM-Kirigaya/slidev-ai), and you can see the effect in the following video 👇
 
-The following video demonstrates the basic process of creating a Slidev project using the MCP tool (with a Chinese interface example):
-
-https://github.com/user-attachments/assets/88e9d940-23cb-4da7-a4a7-68f635c8a3c5
+<a href="https://www.bilibili.com/video/BV1SMhBzJEUL/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3f248073d6ebdb61308992901b606f24" target="_blank"><img src="https://pica.zhimg.com/80/v2-3674ccdc2ceef8255724dbf078cf6ee7_1440w.png" /></a>
 
 ## 🚀 Quick Start
 
@@ -44,8 +42,16 @@ You can customize the root directory where generated Slidev projects are stored 
 Example (Windows cmd, PowerShell similar):
 
 Projects will then be created under that absolute path instead of `.slidev-mcp/`.
+
+```bash
+# powershell
 set SLIDEV_MCP_ROOT=my-slides
-python main.py
+
+# bash or zsh
+export SLIDEV_MCP_ROOT=my-slides
+
+# then run the script
+uv run servers/themes/academic/server.py
 ```
 
 Projects will then be created under `my-slides/` instead of `.slidev-mcp/`.

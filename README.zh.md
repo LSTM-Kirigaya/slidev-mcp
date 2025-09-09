@@ -8,7 +8,7 @@
   <p>让 AI 帮你轻松创建专业幻灯片演示！</p>
   
   <p>
-    <a href="README.md">English</a> | <strong>中文</strong>
+    <a href="README.md">English</a> | <strong>中文</strong> | <a href="https://github.com/LSTM-Kirigaya/slidev-ai">Slidev-AI</a>
   </p>
   
   <div>
@@ -28,6 +28,10 @@ slidev-mcp 是一个基于 [Slidev](https://github.com/slidevjs/slidev) 的智�
 - 自然语言交互式创建幻灯片
 - 自动化生成专业级演示文稿
 
+我们也开源了基于 slidev-mcp 的 AI PPT 一体化网站项目 [Slidev-AI](https://github.com/LSTM-Kirigaya/slidev-ai)，通过下面的视频来查看效果 👇
+
+<a href="https://www.bilibili.com/video/BV1SMhBzJEUL/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3f248073d6ebdb61308992901b606f24" target="_blank"><img src="https://pica.zhimg.com/80/v2-3674ccdc2ceef8255724dbf078cf6ee7_1440w.png" /></a>
+
 ## 🎥 演示视频
 
 下面的视频展示了使用 MCP 工具创建 Slidev 项目的基本流程（中文界面示例）：
@@ -45,9 +49,15 @@ https://github.com/user-attachments/assets/88e9d940-23cb-4da7-a4a7-68f635c8a3c5
 
 示例（Windows cmd）：
 
-```
-set SLIDEV_MCP_ROOT=slides-output
-python main.py
+```bash
+# powershell
+set SLIDEV_MCP_ROOT=my-slides
+
+# bash or zsh
+export SLIDEV_MCP_ROOT=my-slides
+
+# then run the script
+uv run servers/themes/academic/server.py
 ```
 
 之后项目会创建在该绝对路径目录下，而不是默认的 `.slidev-mcp/`。

@@ -15,134 +15,13 @@ layout: cover
     <layout id="center">
         <description>将内容显示在屏幕中央。</description>
     </layout>
-    
-    <layout id="cover">
-        <description>用于展示演示文稿封面页，可包含演示标题、背景信息等。</description>
-    </layout>
-    
+        
     <layout id="default">
         <description>最基础的布局，可展示任意类型内容。</description>
     </layout>
     
     <layout id="end">
         <description>演示文稿的结束页面。</description>
-    </layout>
-    
-    <layout id="fact">
-        <description>以突出方式展示事实或数据。</description>
-    </layout>
-    
-    <layout id="full">
-        <description>使用全屏幕空间展示内容。</description>
-    </layout>
-    
-    <layout id="image-left">
-        <description>在屏幕左侧显示图像，内容将置于右侧。</description>
-        <usage>
-            <code>
----
-layout: image-left
-
-# 图像源
-image: /path/to/the/image
-
-# 内容区域的自定义类名
-class: my-cool-content-on-the-right
----
-            </code>
-        </usage>
-    </layout>
-    
-    <layout id="image-right">
-        <description>在屏幕右侧显示图像，内容将置于左侧。</description>
-        <usage>
-            <code>
----
-layout: image-right
-
-# 图像源
-image: /path/to/the/image
-
-# 内容区域的自定义类名
-class: my-cool-content-on-the-left
----
-            </code>
-        </usage>
-    </layout>
-    
-    <layout id="image">
-        <description>将图像作为页面主内容展示。</description>
-        <usage>
-            <code>
----
-layout: image
-
-# 图像源
-image: /path/to/the/image
----
-可通过 backgroundSize 属性修改默认背景尺寸（cover）：
-
----
-layout: image
-image: /path/to/the/image
-backgroundSize: contain
----
-
----
-layout: image-left
-image: /path/to/the/image
-backgroundSize: 20em 70%
----
-            </code>
-        </usage>
-    </layout>
-    
-    <layout id="iframe-left">
-        <description>在屏幕左侧显示网页，内容将置于右侧。</description>
-        <usage>
-            <code>
----
-layout: iframe-left
-
-# 网页源地址
-url: https://github.com/slidevjs/slidev
-
-# 内容区域的自定义类名
-class: my-cool-content-on-the-right
----
-            </code>
-        </usage>
-    </layout>
-    
-    <layout id="iframe-right">
-        <description>在屏幕右侧显示网页，内容将置于左侧。</description>
-        <usage>
-            <code>
----
-layout: iframe-right
-
-# 网页源地址
-url: https://github.com/slidevjs/slidev
-
-# 内容区域的自定义类名
-class: my-cool-content-on-the-left
----
-            </code>
-        </usage>
-    </layout>
-    
-    <layout id="iframe">
-        <description>将网页作为页面主内容展示。</description>
-        <usage>
-            <code>
----
-layout: iframe
-
-# 网页源地址
-url: https://github.com/slidevjs/slidev
----
-            </code>
-        </usage>
     </layout>
     
     <layout id="two-cols">
@@ -198,12 +77,29 @@ layout: two-cols-header
 <documentation>
     <section name="布局 (Layouts)">
         <layout id="intro">
-            <description>介绍页布局</description>
+            <description>介绍页布局，适用于放在第一页</description>
             <usage>
                 <code>
 ---
+theme: penguin
 layout: intro
+themeConfig:
+  logoHeader: '/avatar.png'
+  eventLogo: 'https://img2.storyblok.com/352x0/f/84560/2388x414/23d8eb4b8d/vue-amsterdam-with-name.png'
+  eventUrl: 'https://vuejs.amsterdam/'
+  twitter: '@alvarosabu'
+  twitterUrl: 'https://twitter.com/alvarosabu'
 ---
+
+# A penguin Slidev Theme
+
+🐧 slides for developers
+
+<div class="pt-12">
+  <span @click="next" class="px-2 p-1 rounded cursor-pointer hover:bg-white hover:bg-opacity-10">
+    Press Space for next page <carbon:arrow-right class="inline"/>
+  </span>
+</div>
                 </code>
             </usage>
         </layout>
@@ -217,25 +113,35 @@ layout: intro
                 <code>
 ---
 layout: presenter
-presenterImage: 'https://res.cloudinary.com/alvarosaburido/image/upload/v1622370075/as-portfolio/alvaro_saburido.jpg'
+presenterImage: 'https://pic1.zhimg.com/80/v2-9a0b6e0ee617ae4e12ef22c628ff8451_1440w.png'
 ---
+# 锦恢（黄哲龙）
+
+- 我是 [**OpenMCP**](https://github.com/LSTM-Kirigaya/openmcp-client) 和 [**SlidevAI**](https://github.com/LSTM-Kirigaya/slidev-ai) 等的作者。
+- 知乎科技领域的知势榜博主，发表技术博客累计 300 多篇。多篇博客被大学讲义和自媒体引用。
+- 深度参与国内第一个大模型训练框架 **ColossalAI** 的开发。
+- 今年秋招以硕士身份拿下国内某大厂人才计划。
+- 欢迎在 [**知乎**](https://www.zhihu.com/people/can-meng-zhong-de-che-xian), [**B站**](https://space.bilibili.com/434469188?spm_id_from=333.1007.0.0) 和 [**我的个人网站**](https://kirigaya.cn) 关注我。
                 </code>
             </usage>
         </layout>
 
         <layout id="new-section">
-            <description>新章节布局</description>
+            <description>新章节布局，适用于新的一章开头前加入</description>
             <usage>
                 <code>
 ---
 layout: new-section
 ---
+# Sec.1 从大模型到 AI Agent
+
+![penguin-work](https://picx.zhimg.com/80/v2-9721a7259f0cb53af341b12850d3bfb4_1440w.png)
                 </code>
             </usage>
         </layout>
 
         <layout id="text-image">
-            <description>文本图像布局</description>
+            <description>文本图像布局，适用于展示单张图片+文本描述的布局</description>
             <parameters>
                 <parameter name="media" type="String" description="媒体资源URL"/>
                 <parameter name="reverse" type="Boolean" default="false" description="是否反转布局顺序"/>
@@ -244,15 +150,22 @@ layout: new-section
                 <code>
 ---
 layout: text-image
-media: 'https://media.giphy.com/media/VkMV9TldsPd28/giphy.gif'
-reverse: true
+media: https://picx.zhimg.com/100/v2-d726780b6b324174e2ea4265a456f7df_r.jpg
+caption: 'I am a penguin'
 ---
+
+# This is a peguin 🐧
+
+Arepa ipsum dolor amet jalabola! aenean sit tequeños se prendio esta chamito;? Nisl nojoda eu amet in? Nisl cuál es la guachafita ni lava ni presta la batea háblame cloro gravida sifrino macundal panita; Sed háblame cloro nunc empanada ac coroto Na webona vladimil parchita?
+
+- Cacique panita sit Se prendio la labia gravida Praesent tequeño.
+- Qué paso mi pana?! elit parchita molleja aguacate vergación, háblame mollejúo chamito est burda mauris morbi;
                 </code>
             </usage>
         </layout>
 
         <layout id="text-window">
-            <description>文本窗口布局</description>
+            <description>文本窗口布局，适用于展示代码和流程图</description>
             <parameters>
                 <parameter name="reverse" type="Boolean" default="false" description="是否反转布局顺序"/>
             </parameters>
@@ -263,13 +176,43 @@ layout: text-window
 reverse: true
 ---
 
-# 控制台
+# Consoles
 
-使用代码片段并直接在漂亮的窗口中获取高亮显示！
+Use code snippets and get the highlighting directly into a nice looking window!
 
 ::window::
 
-我进入窗口内部
+```py
+from openai import OpenAI
+client = OpenAI(api_key="your_api_key")
+
+# 定义函数
+def get_weather(city: str):
+    return {"北京": "28°C", "上海": "30°C"}.get(city, "未知")
+
+# 函数 schema
+functions = [{
+    "name": "get_weather",
+    "parameters": {
+        "type": "object",
+        "properties": {"city": {"type": "string"}},
+        "required": ["city"]
+    }
+}]
+
+# 用户提问
+resp = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": "北京天气怎么样？"}],
+    functions=functions,
+    function_call="auto"
+)
+
+# 执行并返回结果
+args = eval(resp.choices[0].message.function_call.arguments)
+result = get_weather(**args)
+print("最终回答:", result)
+```
                 </code>
             </usage>
         </layout>
@@ -281,32 +224,6 @@ reverse: true
             <usage>
                 <code>
 Say hi at &lt;fancy-link href="https://twitter.com/alvarosabu"&gt;@alvarosabu&lt;/fancy-link&gt;
-                </code>
-            </usage>
-        </component>
-
-        <component name="TheConsole">
-            <description>控制台窗口组件</description>
-            <usage>
-                <code>
-&lt;TheConsole&gt;
-  &lt;iframe
-    height="300"
-    style="width: 100%"
-    scrolling="no"
-    title="Text Clock"
-    src="https://codepen.io/searleb/embed/pvQaJB?default-tab=html%2Cresult"
-    frameborder="no"
-    loading="lazy"
-    allowtransparency="true"
-    allowfullscreen="true"
-  &gt;
-    See the Pen &lt;a href="https://codepen.io/searleb/pen/pvQaJB"&gt; Text Clock&lt;/a&gt; by Bill Searle (&lt;a
-      href="https://codepen.io/searleb"
-      &gt;@searleb&lt;/a
-    &gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.
-  &lt;/iframe&gt;
-&lt;/TheConsole&gt;
                 </code>
             </usage>
         </component>
