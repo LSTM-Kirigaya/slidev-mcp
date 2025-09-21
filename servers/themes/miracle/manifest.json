@@ -14,7 +14,7 @@
         "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/10.png?raw=true"
     ],
     "installScripts": [
-        "npm i -g slidev-theme-penguin",
+        "npm i -g slidev-theme-miracle",
         "npm install -g @iconify-json/mdi"
     ]
 }
