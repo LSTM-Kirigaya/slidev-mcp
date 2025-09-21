@@ -1,0 +1,8 @@
+---
+layout: {{ layout }}
+{% for key, value in parameters.items() %}
+{{ key }}: {{ value }}
+{% endfor %}
+---
+
+{{ content }}

@@ -1,0 +1,19 @@
+{% include "slidev_generate.j2" %}
+
+<OUTLINES>
+{{ outlines }}
+</OUTLINES>
+
+<CONTENT title="{{ title }}">
+{{ content }}
+</CONTENT>
+
+<IMPORTANTS>
+- 在开始之前，你需要先使用 slidev_create 工具创建讲演，并以 {{ path }} 作为参数传入。
+- 每一页默认使用 default 布局，如果有图片，你应该积极使用 image 相关的布局。如果使用了 image 相关的布局，那么你就不应该再使用 ![]() 创建图片了，因为在 frontmatter 中已经创建了。
+- 如果内容太多可以使用 two-cols 布局来分为两列来演示。
+- 每一页的每一个侧边不应该超过12行文字，如果超过了，你应该使用相同的 group 名称，并把对于部分衔接到下一页。
+- 如果一页中使用了多个二级标题，那么你应该把它们拆分到不同的页面。
+- 请严格根据大纲中的内容调用工具来生成 slidev，outlines 中的每一个元素，都对应一页 slidev 的页，你需要使用 `slidev_add_page` 来创建它。
+- 所有步骤结束后，你需要调用 `slidev_export_project` 来导出项目。
+</IMPORTANTS>

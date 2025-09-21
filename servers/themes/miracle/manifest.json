@@ -1,0 +1,20 @@
+{
+    "name": "miracle",
+    "github": "https://github.com/LSTM-Kirigaya/slidev-theme-miracle",
+    "images": [
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/1.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/2.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/3.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/3.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/4.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/5.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/7.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/8.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/9.png?raw=true",
+        "https://github.com/LSTM-Kirigaya/slidev-theme-miracle/blob/main/example-export/10.png?raw=true"
+    ],
+    "installScripts": [
+        "npm i -g slidev-theme-penguin",
+        "npm install -g @iconify-json/mdi"
+    ]
+}
