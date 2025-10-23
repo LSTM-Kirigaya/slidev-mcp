@@ -7,7 +7,7 @@ Please ensure that your system has the following software installed with the spe
 | Software | Version Requirement | Description |
 | -- | -- | -- |
 | Python | >=3.13 | Base environment for running MCP server |
-| Node.js | >=18.0 | Slidev runtime environment |
+| Node.js | >=20 | Slidev runtime environment |
 | UV | - | Python package management tool |
 
 ### Software Installation
@@ -114,7 +114,7 @@ If you want to develop or debug, we recommend using [OpenMCP](https://marketplac
 1. Download the OpenMCP VSCode extension.
 2. Open the OpenMCP extension.
 3. Create a new MCP Server, select stdio, and configure as follows:
-   - **Command**: `uv --directory <replace-with-your-slidev-mcp-path> run main.py`
+   - **Command**: `uv --directory <replace-with-your-slidev-mcp-path>/servers/themes/<replace-with-theme-name> run server.py`
    - **Environment Variables**: If you encounter Node.js not found issues, add environment variables:
      ```json
      {
@@ -124,6 +124,7 @@ If you want to develop or debug, we recommend using [OpenMCP](https://marketplac
 
 > **Note**: 
 > - Replace `<replace-with-your-slidev-mcp-path>` with your actual project path, e.g., `E:\\node-project\\slidev-mcp`
+> - Replace `<replace-with-theme-name>` with one of the built-in themes such as vuetiful, penguin, miracle, frankfurt, default, academic
 > - Replace `<replace-with-your-nodejs-path>` with your Node.js installation path, e.g., `C:\\Program Files\\nodejs`
 > - In some clients, you can use `${PATH}` to reference the system's PATH environment variable
 
@@ -140,9 +141,9 @@ Add the following configuration to Claude Desktop's configuration file:
       "command": "uv",
       "args": [
         "--directory",
-        "<replace-with-your-slidev-mcp-path>",
+        "<replace-with-your-slidev-mcp-path>/servers/themes/<replace-with-theme-name>",
         "run",
-        "main.py"
+        "server.py"
       ],
       "env": {
         "PATH": "<replace-with-your-nodejs-path>;${PATH}"
@@ -155,6 +156,7 @@ Add the following configuration to Claude Desktop's configuration file:
 
 > **Note**: 
 > - Replace `<replace-with-your-slidev-mcp-path>` with your actual project path, e.g., `E:\\node-project\\slidev-mcp`
+> - Replace `<replace-with-theme-name>` with one of the built-in themes such as vuetiful, penguin, miracle, frankfurt, default, academic
 > - Replace `<replace-with-your-nodejs-path>` with your Node.js installation path, e.g., `C:\\Program Files\\nodejs`
 > - The `env` section is used to solve Node.js not found issues in MCP clients
 > - `${PATH}` references the system's current PATH environment variable
