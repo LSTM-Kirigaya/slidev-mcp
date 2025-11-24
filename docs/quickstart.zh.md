@@ -7,7 +7,7 @@
 |软件名称|版本要求|说明|
 | -- | -- | -- |
 |Python|>=3.13|运行 MCP 服务器的基础环境|
-|Node.js|>=18.0|Slidev 运行环境|
+|Node.js|>=20.0|Slidev 运行环境|
 |UV|-|Python 包管理工具|
 
 ### 安装软件
@@ -115,7 +115,7 @@ uv run servers/themes/academic/server.py
 1. 下载OpenMCP VScode插件。
 2. 打开 OpenMCP 插件。
 3. 新建MCPServer，选择stdio，配置如下：
-   - **命令**: `uv --directory <替换为你的slidev-mcp路径> run main.py`
+   - **命令**: `uv --directory <替换为你的slidev-mcp路径>/servers/themes/<替换为你喜爱的主题> run server.py`
    - **环境变量**: OpenMCP会自动同步系统的PATH变量，通常不需要手动设置。但如果遇到 Node.js 找不到的问题，需要添加环境变量：
      ```json
      {
@@ -125,7 +125,8 @@ uv run servers/themes/academic/server.py
 
 > **注意**: 
 > - 请将 `<替换为你的slidev-mcp路径>` 替换为您实际的项目路径，如 `E:\\node-project\\slidev-mcp`
-> - 请将 `<替换为你的nodejs路径>` 替换为您的 Node.js 安装路径，如 `C:\\Program Files\\nodejs`
+> - 请将 `<替换为你的nodejs路径>` 替换为您的 Node.js 安装路径，如 `C:\\Program Files\\nodejs` ，请注意Node版本需要满足 Node.js >= 20
+> - 请将 `<替换为你喜爱的主题>` 替换为 vuetiful、penguin、miracle、frankfurt、default、academic 这些内置主题中的一种
 > - 在某些客户端中，可以使用 `${PATH}` 来引用系统的 PATH 环境变量
 
 
@@ -142,9 +143,9 @@ uv run servers/themes/academic/server.py
       "command": "uv",
       "args": [
         "--directory",
-        "<替换为你的slidev-mcp路径>",
+        "<替换为你的slidev-mcp路径>/servers/themes/<替换为你喜爱的主题>",
         "run",
-        "main.py"
+        "server.py"
       ],
       "env": {
         "PATH": "<替换为你的nodejs路径>;${PATH}"
@@ -157,7 +158,8 @@ uv run servers/themes/academic/server.py
 
 > **注意**: 
 > - 请将 `<替换为你的slidev-mcp路径>` 替换为您实际的项目路径，如 `E:\\node-project\\slidev-mcp`
-> - 请将 `<替换为你的nodejs路径>` 替换为您的 Node.js 安装路径，如 `C:\\Program Files\\nodejs`
+> - 请将 `<替换为你的nodejs路径>` 替换为您的 Node.js 安装路径，如 `C:\\Program Files\\nodejs` ，请注意Node版本需要满足 Node.js >= 20
+> - 请将 `<替换为你喜爱的主题>` 替换为 vuetiful、penguin、miracle、frankfurt、default、academic 这些内置主题中的一种
 > - `env` 部分用于解决 MCP 客户端找不到 Node.js 的问题
 > - `${PATH}` 会引用系统当前的 PATH 环境变量
 
@@ -205,6 +207,7 @@ playwright install
      }
    }
    ```
+    > Node 版本需要满足 Node.js >= 20
 
 #### 对于 Claude Desktop:
 在配置中添加 `env` 部分：
@@ -215,9 +218,9 @@ playwright install
       "command": "uv",
       "args": [
         "--directory",
-        "<替换为你的slidev-mcp路径>",
+        "<替换为你的slidev-mcp路径>/servers/themes/<replace-with-theme-name>",
         "run",
-        "main.py"
+        "server.py"
       ],
       "env": {
         "PATH": "<替换为你的nodejs路径>;${PATH}"
