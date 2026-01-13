@@ -46,7 +46,10 @@ class SlidevBase:
             if not self.state_manager.load_slidev_content(name):
                 return SlidevResult(success=False, message="项目创建成功但加载失败", data=name)
 
-        return SlidevResult(success=True, message=f"成功创建并加载项目 {name}", data=name)
+        # 返回绝对路径，方便用户定位到创建位置
+        slides_abs = self.state_manager.active_project.get("slides_path") if self.state_manager.active_project else str(Path(slides_path).absolute())
+        home_abs = str(Path(home).absolute())
+        return SlidevResult(success=True, message=f"成功创建并加载项目 {name}，路径: {slides_abs}", data=home_abs)
 
     def load(self, param: SlidevLoadParam) -> SlidevResult:
         """加载已有项目"""
